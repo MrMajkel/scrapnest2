@@ -1,0 +1,116 @@
+.modal-form {
+    position: relative;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+  }
+  
+  .modal-form .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .modal-form input,
+  .modal-form textarea {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .modal-form textarea {
+    resize: vertical;
+    min-height: 60px;
+    grid-column: span 2;
+  }
+  
+  .modal-form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .modal-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .modal-form button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .modal-form button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  .modal-form button.cancel {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .modal-form button.cancel:hover {
+    background-color: #bdb2b2;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-form {
+      min-width: auto;
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .modal-form .form-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .modal-form textarea {
+      grid-column: span 1;
+    }
+  
+    .modal-form .form-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .modal-form button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .modal-form {
+      padding: 16px;
+      border-radius: 10px;
+    }
+  
+    .modal-form input,
+    .modal-form textarea {
+      font-size: 13px;
+      padding: 9px;
+    }
+  
+    .modal-form button {
+      font-size: 13px;
+      padding: 9px 16px;
+    }
+  }
+  

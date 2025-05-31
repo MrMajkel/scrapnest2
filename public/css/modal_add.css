@@ -1,0 +1,206 @@
+.modal-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  width: 95%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .modal-form {
+    padding: 12px 8px;
+    border-radius: 8px;
+  }
+
+  .modal-form .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-form button {
+    width: 100%;
+  }
+
+  .pozycja-row {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-form {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .modal-form .form-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .modal-form button {
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+
+  .pozycja-row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .pozycja-row select,
+  .pozycja-row input {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .pozycja-row {
+    flex-wrap: wrap;
+  }
+
+  .pozycja-row select,
+  .pozycja-row input {
+    flex: 1 1 100%;
+  }
+
+  .pozycja-row button.remove-pozycja {
+    align-self: flex-end;
+  }
+}
+
+.modal-form .scrollable-content {
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(90vh - 160px);
+  padding-right: 10px;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5px 0;
+}
+
+.modal-form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.modal-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-form button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-form button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.modal-form button.cancel {
+  background-color: #ccc;
+  color: #333;
+}
+
+.modal-form button.cancel:hover {
+  background-color: #bdb2b2;
+}
+
+.pozycja-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: nowrap;
+}
+
+.pozycja-row select,
+.pozycja-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px;
+  height: 42px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.pozycja-row button.remove-pozycja {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+  height: 42px;
+  min-width: 32px;
+  padding: 0 8px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pozycja-row button.remove-pozycja:hover {
+  color: red;
+}
+
+#add-pozycja {
+  width: 100%;
+  background-color: #f3f3f3;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+#add-pozycja:hover {
+  background-color: #e0e0e0;
+}
+
+#add-pozycja:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#pozycje-container {
+  margin-top: 20px;
+}
