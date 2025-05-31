@@ -1,14 +1,20 @@
 <?php require 'backend/auth.php'; ?>
+<?php
+if (!isset($_SESSION['user']) || $_SESSION['user']['rola'] !== 'admin') {
+    header('Location: logowanie.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ScrapNest - Faktury Zakup</title>
+  <title>ScrapNest - użytkownicy</title>
   <link rel="stylesheet" href="css/common.css" />
   <link rel="stylesheet" href="css/common2.css" />
   <link rel="stylesheet" href="css/modal.css" />
-  <link rel="stylesheet" href="css/modal_add.css" />
+  <link rel="stylesheet" href="css/modal_add_users.css" />
   <script src="js/logout.js"></script>
 </head>
 <body>
@@ -23,14 +29,14 @@
       <div></div>
     </div>
     <nav class="nav">
-      <a href="panel.php"><button>Panel</button></a>
-      <a href="formularze.php"><button>Formularze</button></a>
-      <a href="fv_zakup.php"><button class="active">Faktury zakup</button></a>
-      <a href="fv_sprzedaz.php"><button>Faktury sprzedaż</button></a>
-      <a href="kontrahenci.php"><button>Kontrahenci</button></a>
-      <a href="raporty.php"><button>Raporty</button></a>
+      <a href="/panel"><button>Panel</button></a>
+      <a href="/formularze"><button>Formularze</button></a>
+      <a href="/fv_zakup"><button>Faktury zakup</button></a>
+      <a href="/fv_sprzedaz"><button>Faktury sprzedaż</button></a>
+      <a href="/kontrahenci"><button>Kontrahenci</button></a>
+      <a href="/raporty"><button>Raporty</button></a>
       <?php if (isset($_SESSION['user']) && $_SESSION['user']['rola'] === 'admin'): ?>
-        <a href="uzytkownicy.php"><button>Użytkownicy</button></a>
+        <a href="/uzytkownicy"><button class="active">Użytkownicy</button></a>
       <?php endif; ?>
       <div class="avatar-container">
         <div class="avatar" id="avatarBtn">
@@ -45,22 +51,31 @@
   <main class="content">
     <section class="section">
       <div class="section-header">
-        <h2>Faktury zakupowe</h2>
-        <button class="add-button">+ Dodaj fakturę</button>
+        <h2>Użytkownicy</h2>
+        <button class="add-button">+ Dodaj użytkownika</button>
       </div>
       <table>
         <thead>
-          <tr><th>Nr. faktury</th><th>Data</th><th>Firma</th><th>Metal</th><th>Waga</th><th></th></tr>
+          <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Login</th>
+            <th>Hasło</th>
+            <th>Rola</th>
+            <th></th>
+          </tr>
         </thead>
-        <tbody><tr><td colspan="6">Ładowanie danych...</td></tr></tbody>
+        <tbody>
+          <tr><td colspan="6">Ładowanie danych...</td></tr>
+        </tbody>
       </table>
       <div class="pagination"></div>
     </section>
   </main>
-  <script src="js/fv_zakup.js"></script>
+  <script src="js/uzytkownicy.js"></script>
   <div id="confirmModal" class="modal hidden">
     <div class="modal-content">
-      <p>Na pewno usunąć fakturę?</p>
+      <p>Na pewno usunąć użytkownika?</p>
       <div class="modal-actions">
         <button id="confirmYes">Tak</button>
         <button id="confirmNo">Anuluj</button>

@@ -30,6 +30,6 @@ pg_query_params($conn,
     [$imie, $nazwisko, $email, $hashed, $rola]
 );
 
-header("Location: ../index.php?zarejestrowano=1");
+header("Location: ../logowanie.php?zarejestrowano=1");
 exit;
 ?>

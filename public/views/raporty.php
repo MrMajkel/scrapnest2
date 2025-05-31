@@ -24,14 +24,14 @@
       <div></div>
     </div>
     <nav class="nav">
-      <a href="panel.php"><button>Panel</button></a>
-      <a href="formularze.php"><button>Formularze</button></a>
-      <a href="fv_zakup.php"><button>Faktury zakup</button></a>
-      <a href="fv_sprzedaz.php"><button>Faktury sprzedaż</button></a>
-      <a href="kontrahenci.php"><button>Kontrahenci</button></a>
-      <a href="raporty.php"><button class="active">Raporty</button></a>
+      <a href="/panel"><button>Panel</button></a>
+      <a href="/formularze"><button>Formularze</button></a>
+      <a href="/fv_zakup"><button>Faktury zakup</button></a>
+      <a href="/fv_sprzedaz"><button>Faktury sprzedaż</button></a>
+      <a href="/kontrahenci"><button>Kontrahenci</button></a>
+      <a href="/raporty"><button class="active">Raporty</button></a>
       <?php if (isset($_SESSION['user']) && $_SESSION['user']['rola'] === 'admin'): ?>
-        <a href="uzytkownicy.php"><button>Użytkownicy</button></a>
+        <a href="/uzytkownicy"><button>Użytkownicy</button></a>
       <?php endif; ?>
       <div class="avatar-container">
         <div class="avatar" id="avatarBtn">

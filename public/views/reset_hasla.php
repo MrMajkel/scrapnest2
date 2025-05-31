@@ -21,7 +21,7 @@
         <input type="email" name="email" id="email" placeholder="Twój adres e-mail" required />
         <button type="submit">Wyświetl nowe hasło</button>
         <div class="options">
-          <a href="index.php" class="option1">Wróć do logowania</a>
+          <a href="logowanie.php" class="option1">Wróć do logowania</a>
         </div>
         <div id="response"></div>
       </form>

@@ -3,7 +3,7 @@ session_start();
 require 'db.php';
 
 if (empty($_POST['email']) || empty($_POST['haslo'])) {
-    header("Location: ../index.php?error=1");
+    header("Location: /logowanie?error=1");
     exit;
 }
 
@@ -14,7 +14,7 @@ $result = pg_query_params($conn, "SELECT id, email, haslo, imie, nazwisko, rola 
 $user = pg_fetch_assoc($result);
 
 if (!$user || !password_verify($haslo, $user['haslo'])) {
-    header("Location: ../index.php?error=1");
+    header("Location: /logowanie?error=1");
     exit;
 }
 
@@ -26,6 +26,6 @@ $_SESSION['user'] = [
     'rola' => $user['rola']
 ];
 
-header("Location: ../panel.php");
+header("Location: /panel");
 exit;
 ?>
